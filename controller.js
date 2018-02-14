@@ -3,15 +3,17 @@
 	function FormController() {
 		var vm = this;
 		vm.toDoItem = [];
+
 		vm.updateInfo = function(item) {
 			vm.toDoItem.push(item);
 			document.getElementById("inputEl").value = "";
 			console.log(item);
 		};
-		vm.remove = function(){
-			vm.toDoItem.splice()
-		}
-	}
+		
+		vm.remove = function(item) {
+			vm.toDoItem.splice(item, 1);
+		};
+	};
 
 	angular
 		.module("app")
