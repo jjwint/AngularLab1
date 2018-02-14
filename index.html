@@ -10,10 +10,10 @@
 			<p>A place to store the things you want to do!</p>
 			<input type="text" placeholder="Filter your to-dos" ng-model="toDoFilter">
 			<ol>
-				<li ng-repeat="item in toDoItem"></li>
+				<li ng-repeat="item in form.toDoItem | filter: toDoFilter track by $index" >{{ item }}<i ng-click=form.remove()></i></li>
 			</ol>
-			<input type="text" placeholder="Add your to-do" ng-model="toDoItem">
-			<button ng-click="form.updateInfo()">ADD</button>
+			<input type="text" placeholder="Add your to-do" ng-model="toDoItem" id="inputEl">
+			<button ng-click="form.updateInfo(toDoItem)">ADD</button>
 		</form>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
 	<script src="app.js"></script>
